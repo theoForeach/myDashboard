@@ -1,16 +1,11 @@
-<select id="conn" onchange="changeConnection();">
-    {% for connection in connection_list %}
-        <option value="{{ connection.id }}">{{ connection.host }}</option>
-    {% endfor %}
-</select>
-<table>
+<table border="1">
     {% for key in redis_key_list %}
         <tr>
             <td>
                 {{ key }}
             </td>
             <td>
-                <a>View</a>
+                <a href="{% url 'redishboard:detail' key %}">View</a>
             </td>
             <td>
                 <a href="{% url 'redishboard:delete' key %}">Delete</a>
